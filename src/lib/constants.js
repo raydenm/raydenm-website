@@ -8,7 +8,10 @@ import {
   NavigationIcon,
   Wand2Icon,
   BookmarkIcon,
-  ArmchairIcon
+  ArmchairIcon,
+  User,
+  Boxes,
+  Images
 } from 'lucide-react'
 
 export const PROFILES = {
@@ -77,54 +80,51 @@ export const PROFILES = {
   // }
 }
 
-export const TWEETS_COLLECTION_ID = 15896982
-
-export const COLLECTION_IDS = [
-  18259129,
-  15968768,
-  23598938,
-  16949672,
-  15807896,
-  15807897,
-  15969648,
-  16338467,
-  TWEETS_COLLECTION_ID,
-  25589709,
-  17139082,
-  22029101,
-  39696243
-]
-
 export const LINKS = [
   {
     href: '/',
-    label: 'Home',
+    label: '主页',
     icon: <SparklesIcon size={16} />
   },
   {
     href: '/writing',
-    label: 'Writing',
+    label: '文章',
     icon: <PencilLineIcon size={16} />
   },
   {
     href: '/journey',
-    label: 'Journey',
+    label: '时光记录',
     icon: <NavigationIcon size={16} />
   },
   {
     href: '/stack',
-    label: 'Stack',
+    label: '技术找',
     icon: <Wand2Icon size={16} />
   },
+  // {
+  //   href: '/workspace',
+  //   label: 'Workspace',
+  //   icon: <ArmchairIcon size={16} />
+  // },
   {
-    href: '/workspace',
-    label: 'Workspace',
-    icon: <ArmchairIcon size={16} />
+    href: '/project',
+    label: '项目集',
+    icon: <Boxes size={16} />
   },
   {
     href: '/bookmarks',
-    label: 'Bookmarks',
+    label: '书签',
     icon: <BookmarkIcon size={16} />
+  },
+  {
+    href: '/photo',
+    label: '相册',
+    icon: <Images size={16} />
+  },
+  {
+    href: '/contact',
+    label: '联系我',
+    icon: <User size={16} />
   }
 ]
 

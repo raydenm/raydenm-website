@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SendIcon } from 'lucide-react'
 
 import {
@@ -14,9 +14,15 @@ import {
 import { Button } from '@/components/ui/button.jsx'
 import { SubmitBookmarkForm } from '@/components/submit-bookmark/form'
 import { SUBMIT_BOOKMARK_FORM_TITLE, SUBMIT_BOOKMARK_FORM_DESCRIPTION } from '@/lib/constants'
+import useStore from '@/store/index.ts'
 
 export const SubmitBookmarkDialog = ({ bookmarks, currentBookmark }) => {
   const [open, setOpen] = useState(false)
+  const setEditing = useStore((state) => state.setEditing)
+  
+  useEffect(() => {
+    setEditing(open)
+  }, [open, setEditing])
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
