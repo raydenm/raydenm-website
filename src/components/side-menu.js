@@ -38,7 +38,7 @@ export const SideMenu = ({ children, title, bookmarks = [], isInner }) => {
   useKeyPress(onKeyPress, Object.keys(keyCodePathnameMapping))
 
   function onKeyPress(event) {
-    if(editing) return
+    if (editing) return
     const key = event.code
     const targetPathname = keyCodePathnameMapping[key]
     if (targetPathname && targetPathname !== pathname) router.push(targetPathname)

@@ -19,7 +19,7 @@ import useStore from '@/store/index.ts'
 export const SubmitBookmarkDialog = ({ bookmarks, currentBookmark }) => {
   const [open, setOpen] = useState(false)
   const setEditing = useStore((state) => state.setEditing)
-  
+
   useEffect(() => {
     setEditing(open)
   }, [open, setEditing])

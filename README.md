@@ -1,4 +1,3 @@
-
 My personal website has evolved over the years — from a simple static HTML page, to `Create React App`, to `GatsbyJS`,
 then to a combination of `Next.js`, `Chakra UI` and `MDX`, and finally to a combination of `Next.js`, `Tailwind CSS` and
 `Contentful`. It serves as an app-like-web platform for my writings, highlighting my journey, showcasing my bookmarks,
@@ -34,4 +33,3 @@ Create a `.env` file similar to [`.env.example`].
 ## Repo Activity
 
 ![Alt](https://repobeats.axiom.co/api/embed/2d43636ebc156829d3e99c6f8c2b68d5aa6ebf93.svg 'Repobeats analytics image')
-

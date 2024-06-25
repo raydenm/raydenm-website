@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button.jsx'
 import { BookmarkCard } from '@/components/bookmark-card'
 import { getBookmarkItemsByPageIndex } from '@/app/actions'
 import { cn } from '@/lib/utils'
-import { TWEETS_COLLECTION_ID } from '@/lib/constants'
+// import { TWEETS_COLLECTION_ID } from '@/lib/constants'
 
 export const BookmarkList = ({ initialData, id }) => {
   const [data, setData] = useState(initialData?.result ? initialData?.items : [])
@@ -44,7 +44,8 @@ export const BookmarkList = ({ initialData, id }) => {
 
   const chunks = useMemo(() => getChunks(), [getChunks])
   const isReachingEnd = data.length >= initialData?.count ?? 0
-  const isTweetCollection = id === TWEETS_COLLECTION_ID
+  // const isTweetCollection = id === TWEETS_COLLECTION_ID
+  const isTweetCollection = false
 
   return (
     <div>

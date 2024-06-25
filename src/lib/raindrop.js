@@ -1,7 +1,6 @@
 import { cache } from 'react'
 import 'server-only'
 
-
 const options = {
   method: 'GET',
   headers: {

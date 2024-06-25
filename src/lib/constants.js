@@ -1,18 +1,20 @@
 import {
   GithubIcon,
-  LinkedinIcon,
-  InstagramIcon,
-  YoutubeIcon,
+  // LinkedinIcon,
+  // InstagramIcon,
+  // YoutubeIcon,
   SparklesIcon,
   PencilLineIcon,
   NavigationIcon,
   Wand2Icon,
   BookmarkIcon,
-  ArmchairIcon,
+  // ArmchairIcon,
   User,
   Boxes,
   Images
 } from 'lucide-react'
+
+// export const TWEETS_COLLECTION_ID = 15896982
 
 export const PROFILES = {
   // twitter: {
@@ -42,7 +44,7 @@ export const PROFILES = {
     title: 'GitHub',
     url: 'https://github.com/raydenm',
     icon: <GithubIcon size={16} />
-  },
+  }
   // linkedin: {
   //   title: 'LinkedIn',
   //   url: 'https://www.linkedin.com/in/suyalcinkaya',
