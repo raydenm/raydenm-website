@@ -22,10 +22,10 @@ export default async function Home() {
 
   return (
     <ScrollArea useScrollAreaId>
-      <FloatingHeader scrollTitle="Raydenm" />
+      <FloatingHeader scrollTitle="主页" />
       <div className="content-wrapper">
         <div className="content">
-          <PageTitle title="Home" className="lg:hidden" />
+          <PageTitle title="主页" className="lg:hidden" />
           <p>Hi 👋 I'm Raydem.</p>
           <p>Frontend Developer.</p>
           <Button asChild variant="link" className="inline px-0">
