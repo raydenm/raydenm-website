@@ -26,12 +26,8 @@ export default async function Home() {
       <div className="content-wrapper">
         <div className="content">
           <PageTitle title="Home" className="lg:hidden" />
-          <p>
-            Hi 👋 I'm Raydem.
-          </p>
-          <p>
-            Frontend Developer.
-          </p>
+          <p>Hi 👋 I'm Raydem.</p>
+          <p>Frontend Developer.</p>
           <Button asChild variant="link" className="inline px-0">
             <Link href="/writing">
               <h2 className="mb-4 mt-8">Writing</h2>

@@ -12,7 +12,8 @@
     "prettier": "prettier --write \"**/*.{html,js,jsx,json,md,mdx,mjs}\"",
     "clear-cache": "rm -rf .next",
     "unused": "next-unused",
-    "lint": "eslint . --ext .js,.jsx"
+    "lint": "eslint . --ext .js,.jsx",
+    "prepare": "husky"
   },
   "engines": {
     "node": "18.x"
@@ -56,6 +57,8 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.1.1",
     "cssnano-preset-advanced": "^6.1.1",
@@ -66,6 +69,7 @@
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-tailwindcss": "^3.15.1",
+    "lint-staged": "^15.2.7",
     "next-unused": "^0.0.6",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
@@ -80,6 +84,13 @@
     ],
     "entrypoints": [
       "src"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "pnpm lint",
+      "pnpm prettier",
+      "git add"
     ]
   }
 }

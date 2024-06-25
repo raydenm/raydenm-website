@@ -73,11 +73,11 @@ export default async function Workspace() {
   )
 }
 
-const EmptyPlaceholder = () => (
-  <div className="shrink-0 snap-center md:hidden">
-    <div className="w-px shrink-0" />
-  </div>
-)
+// const EmptyPlaceholder = () => (
+//   <div className="shrink-0 snap-center md:hidden">
+//     <div className="w-px shrink-0" />
+//   </div>
+// )
 
 export async function generateMetadata() {
   const seoData = await getPageSeo('workspace')

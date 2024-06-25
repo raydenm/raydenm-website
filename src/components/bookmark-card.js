@@ -1,15 +1,15 @@
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { Link2Icon } from 'lucide-react'
 
-const TweetCard = dynamic(() => import('@/components/tweet-card/tweet-card').then((mod) => mod.TweetCard))
-import { TWEETS_COLLECTION_ID } from '@/lib/constants'
+// const TweetCard = dynamic(() => import('@/components/tweet-card/tweet-card').then((mod) => mod.TweetCard))
+// import { TWEETS_COLLECTION_ID } from '@/lib/constants'
 
 export const BookmarkCard = ({ bookmark, order }) => {
-  if (bookmark.link && bookmark.collectionId === TWEETS_COLLECTION_ID) {
-    const match = bookmark.link.match(/\/status\/(\d+)/) ?? []
-    const tweetId = match[1]
-    return <TweetCard id={tweetId} />
-  }
+  // if (bookmark.link && bookmark.collectionId === TWEETS_COLLECTION_ID) {
+  //   const match = bookmark.link.match(/\/status\/(\d+)/) ?? []
+  //   const tweetId = match[1]
+  //   return <TweetCard id={tweetId} />
+  // }
 
   return (
     <a
