@@ -52,35 +52,3 @@ export default async function CollectionPage({ params }) {
     </ScrollArea>
   )
 }
-
-export async function generateMetadata({ params }) {
-  const { slug } = params
-  const bookmarks = await getBookmarks()
-  const currentBookmark = bookmarks.find((bookmark) => bookmark.slug === slug)
-  if (!currentBookmark) return null
-
-  const siteUrl = `/bookmarks/${currentBookmark.slug}`
-  const seoTitle = `${currentBookmark.title} | Bookmarks`
-  const seoDescription = `A curated selection of various handpicked ${currentBookmark.title.toLowerCase()} bookmarks by Raydenm`
-
-  return {
-    title: seoTitle,
-    description: seoDescription,
-    keywords: [
-      currentBookmark.title,
-      'bookmarks',
-      `${currentBookmark.title} bookmarks`,
-      'collection',
-      `${currentBookmark.title} collection`
-    ],
-    openGraph: {
-      title: seoTitle,
-      description: seoDescription,
-      url: siteUrl,
-      images: siteUrl + '/og.png'
-    },
-    alternates: {
-      canonical: siteUrl
-    }
-  }
-}

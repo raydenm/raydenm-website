@@ -13,7 +13,7 @@ export async function submitBookmark(formData) {
 
   const formSubmissionCountCookie = cookieStore.get(BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME)
   if (formSubmissionCountCookie?.value >= MAX_BOOKMARK_SUBMISSIONS_PER_DAY) {
-    throw new Error('You have reached the maximum number of submissions for today.')
+    throw new Error('已达到当日可提交最大值, 请明日再试!')
   }
 
   try {
@@ -49,7 +49,7 @@ export async function submitBookmark(formData) {
     return data
   } catch (error) {
     console.info(error)
-    throw new Error('Failed to submit bookmark')
+    throw new Error('提交书签失败, 请稍后再试!')
   }
 }
 

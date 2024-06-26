@@ -7,7 +7,7 @@ import { FloatingHeader } from '@/components/floating-header'
 import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
 import { PageTitle } from '@/components/page-title'
 import { GradientBg3 } from '@/components/gradient-bg'
-import { getAllLogbook, getPageSeo } from '@/lib/contentful'
+import { getAllLogbook } from '@/lib/contentful'
 
 async function fetchData() {
   const allLogbook = await getAllLogbook()
@@ -29,10 +29,10 @@ export default async function Journey() {
   return (
     <ScrollArea useScrollAreaId>
       <GradientBg3 />
-      <FloatingHeader scrollTitle="Journey" />
+      <FloatingHeader scrollTitle="时光记录" />
       <div className="content-wrapper">
         <div className="content">
-          <PageTitle title="Journey" />
+          <PageTitle title="时光记录" />
           <Suspense fallback={<ScreenLoadingSpinner />}>
             <div className="flex flex-col items-stretch gap-12">
               {allLogbook.map((item, itemIndex) => (
@@ -66,27 +66,4 @@ export default async function Journey() {
       </div>
     </ScrollArea>
   )
-}
-
-export async function generateMetadata() {
-  const seoData = await getPageSeo('journey')
-  if (!seoData) return null
-
-  const {
-    seo: { title, description }
-  } = seoData
-  const siteUrl = '/journey'
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url: siteUrl
-    },
-    alternates: {
-      canonical: siteUrl
-    }
-  }
 }

@@ -26,8 +26,7 @@ const keyCodePathnameMapping = {
   Digit4: '/stack',
   Digit5: '/project',
   Digit6: '/bookmarks',
-  Digit7: '/photo',
-  Digit8: '/contact'
+  Digit7: '/photo'
 }
 
 export const SideMenu = ({ children, title, bookmarks = [], isInner }) => {
@@ -60,7 +59,7 @@ export const SideMenu = ({ children, title, bookmarks = [], isInner }) => {
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold tracking-tight">{title}</span>
             <div className="flex items-center gap-2">
-              {(isWritingPath || isBookmarksPath) && (
+              {/* {(isWritingPath || isBookmarksPath) && (
                 <Button variant="outline" size="xs" asChild>
                   <a
                     href={isWritingPath ? '/writing.xml' : '/bookmarks.xml'}
@@ -72,7 +71,7 @@ export const SideMenu = ({ children, title, bookmarks = [], isInner }) => {
                     RSS feed
                   </a>
                 </Button>
-              )}
+              )} */}
               {isBookmarksPath && <SubmitBookmarkDialog bookmarks={bookmarks} currentBookmark={currentBookmark} />}
             </div>
           </div>

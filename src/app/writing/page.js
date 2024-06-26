@@ -4,7 +4,7 @@ import { ScrollArea } from '@/components/scroll-area'
 import { FloatingHeader } from '@/components/floating-header'
 import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
 import { WritingListLayout } from '@/components/writing/writing-list-layout'
-import { getPageSeo, getAllPosts } from '@/lib/contentful'
+import { getAllPosts } from '@/lib/contentful'
 import { getSortedPosts } from '@/lib/utils'
 
 async function fetchData() {
@@ -24,27 +24,4 @@ export default async function Writing() {
       </Suspense>
     </ScrollArea>
   )
-}
-
-export async function generateMetadata() {
-  const seoData = await getPageSeo('writing')
-  if (!seoData) return null
-
-  const {
-    seo: { title, description }
-  } = seoData
-  const siteUrl = '/writing'
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url: siteUrl
-    },
-    alternates: {
-      canonical: siteUrl
-    }
-  }
 }

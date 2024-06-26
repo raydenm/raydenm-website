@@ -1,16 +1,13 @@
 import '@/globals.css'
 import { draftMode } from 'next/headers'
-// import Script from 'next/script'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-// import { SpeedInsights } from '@vercel/speed-insights/next'
 import { EyeIcon } from 'lucide-react'
 
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { SideMenu } from '@/components/side-menu'
 import { MenuContent } from '@/components/menu-content'
 import { preloadGetAllPosts } from '@/lib/contentful'
-// import { PROFILES } from '@/lib/constants'
 import { sharedMetadata } from '@/app/shared-metadata'
 
 export default async function RootLayout({ children }) {
@@ -38,13 +35,6 @@ export default async function RootLayout({ children }) {
           </div>
         </main>
         <TailwindIndicator />
-        {/* <SpeedInsights /> */}
-        {/* <Script
-          src="https://unpkg.com/@tinybirdco/flock.js"
-          data-host="https://api.tinybird.co"
-          data-token={process.env.NEXT_PUBLIC_TINYBIRD_TOKEN}
-          strategy="lazyOnload"
-        /> */}
       </body>
     </html>
   )
@@ -57,23 +47,10 @@ export const metadata = {
     follow: true
   },
   title: {
-    default: sharedMetadata.title,
-    template: `%s — ${sharedMetadata.title}`
+    default: sharedMetadata.title
   },
   description: sharedMetadata.description,
   keywords: ['raydenm'],
-  openGraph: {
-    title: {
-      default: sharedMetadata.title,
-      template: `%s — ${sharedMetadata.title}`
-    },
-    description: sharedMetadata.description,
-    alt: sharedMetadata.title,
-    type: 'website',
-    url: 'https://raydenm.zeabur.app',
-    siteName: sharedMetadata.title,
-    locale: 'en_IE'
-  },
   alternates: {
     canonical: '/'
   },

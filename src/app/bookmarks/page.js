@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { ScrollArea } from '@/components/scroll-area'
 import { FloatingHeader } from '@/components/floating-header'
 import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
-import { getPageSeo } from '@/lib/contentful'
 import { getBookmarks } from '@/lib/raindrop'
 import { sortByProperty } from '@/lib/utils'
 
@@ -36,27 +35,4 @@ export default async function Writing() {
       </Suspense>
     </ScrollArea>
   )
-}
-
-export async function generateMetadata() {
-  const seoData = await getPageSeo('bookmarks')
-  if (!seoData) return null
-
-  const {
-    seo: { title, description }
-  } = seoData
-  const siteUrl = '/bookmarks'
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url: siteUrl
-    },
-    alternates: {
-      canonical: siteUrl
-    }
-  }
 }

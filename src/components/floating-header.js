@@ -84,7 +84,7 @@ export const FloatingHeader = memo(({ scrollTitle, title, goBackLink, bookmarks,
                   <span className="line-clamp-2 font-semibold tracking-tight">{title}</span>
                 </Balancer>
               )}
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 {(isWritingIndexPage || isBookmarksIndexPage) && (
                   <Button variant="outline" size="xs" asChild>
                     <a
@@ -99,7 +99,7 @@ export const FloatingHeader = memo(({ scrollTitle, title, goBackLink, bookmarks,
                   </Button>
                 )}
                 {isBookmarkPath && <SubmitBookmarkDrawer bookmarks={bookmarks} currentBookmark={currentBookmark} />}
-              </div>
+              </div> */}
             </div>
           </div>
           {/* This is a hack to show writing views with framer motion reveal effect */}

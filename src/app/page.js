@@ -9,6 +9,7 @@ import { PageTitle } from '@/components/page-title'
 import { Button } from '@/components/ui/button.jsx'
 import { getAllPosts } from '@/lib/contentful'
 import { getSortedPosts, getItemsByYear } from '@/lib/utils'
+import { ContcatContent } from '@/components/contcat-content'
 
 async function fetchData() {
   const allPosts = await getAllPosts()
@@ -30,12 +31,13 @@ export default async function Home() {
           <p>Frontend Developer.</p>
           <Button asChild variant="link" className="inline px-0">
             <Link href="/writing">
-              <h2 className="mb-4 mt-8">Writing</h2>
+              <h2 className="mb-4 mt-8">文章</h2>
             </Link>
           </Button>
           <Suspense fallback={<ScreenLoadingSpinner />}>
             <WritingList items={items} header="Writing" />
           </Suspense>
+          <ContcatContent />
         </div>
       </div>
     </ScrollArea>

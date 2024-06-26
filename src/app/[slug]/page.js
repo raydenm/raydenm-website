@@ -8,7 +8,7 @@ import { FloatingHeader } from '@/components/floating-header'
 import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
 import { GradientBg } from '@/components/gradient-bg'
 import { RichText } from '@/components/contentful/rich-text'
-import { getPage, getPageSeo, getAllPageSlugs } from '@/lib/contentful'
+import { getPage, getAllPageSlugs } from '@/lib/contentful'
 import { isDevelopment } from '@/lib/utils'
 
 export async function generateStaticParams() {
@@ -48,30 +48,4 @@ export default async function PageSlug({ params }) {
       </div>
     </ScrollArea>
   )
-}
-
-export async function generateMetadata({ params }) {
-  const { slug } = params
-  const seoData = await getPageSeo(slug)
-  if (!seoData) return null
-
-  const {
-    seo: { title, description, keywords }
-  } = seoData
-  const siteUrl = `/${slug}`
-
-  return {
-    title,
-    description,
-    keywords,
-    openGraph: {
-      title,
-      description,
-      url: siteUrl,
-      images: siteUrl + '/og.png'
-    },
-    alternates: {
-      canonical: siteUrl
-    }
-  }
 }

@@ -6,7 +6,6 @@ import { FloatingHeader } from '@/components/floating-header'
 import { PageTitle } from '@/components/page-title'
 import { GradientBg4 } from '@/components/gradient-bg'
 import { Link } from '@/components/link'
-import { getPageSeo } from '@/lib/contentful'
 import { isExternalLink } from '@/lib/utils'
 import { WORKSPACE_ITEMS } from '@/lib/constants'
 
@@ -78,26 +77,3 @@ export default async function Workspace() {
 //     <div className="w-px shrink-0" />
 //   </div>
 // )
-
-export async function generateMetadata() {
-  const seoData = await getPageSeo('workspace')
-  if (!seoData) return null
-
-  const {
-    seo: { title, description }
-  } = seoData
-  const siteUrl = '/workspace'
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url: siteUrl
-    },
-    alternates: {
-      canonical: siteUrl
-    }
-  }
-}
