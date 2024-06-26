@@ -10,33 +10,26 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { cn } from '@/lib/utils'
 
 const formSchema = z.object({
   name: z.string().min(1, {
     message: '请填写姓名'
   }),
-  phone: z.string(),
-  email: z
-    .string()
-    .min(1, {
-      message: '请填写邮箱'
-    })
-    .email({
-      message: '邮箱格式不正确'
-    }),
+  contact: z.string().min(1, {
+    message: '请填写联系方式'
+  }),
   message: z.string()
 })
 
-export function SubmitContcatForm() {
+export function SubmitContcatForm({ className, setFormOpen }) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const form = useForm({
     resolver: zodResolver(formSchema),
-    // mode: 'onChange',
     defaultValues: {
       name: '',
-      email: '',
-      phone: '',
+      contact: '',
       message: ''
     }
   })
@@ -57,12 +50,15 @@ export function SubmitContcatForm() {
         reset()
       })
       .catch(() => toast.error('提交失败, 请稍后再试'))
-      .finally(() => setIsSubmitting(false))
+      .finally(() => {
+        setIsSubmitting(false)
+        setFormOpen(false)
+      })
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className={cn('space-y-6')}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={cn('space-y-6', className)}>
         <FormField
           control={form.control}
           name="name"
@@ -80,27 +76,14 @@ export function SubmitContcatForm() {
         />
         <FormField
           control={form.control}
-          name="email"
+          name="contact"
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                邮箱<span className="ml-1 text-lg font-light leading-4 text-rose-500">*</span>
+                联系方式<span className="ml-1 text-lg font-light leading-4 text-rose-500">*</span>
               </FormLabel>
               <FormControl>
-                <Input placeholder="请输入邮箱" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>联系方式</FormLabel>
-              <FormControl>
-                <Input placeholder="请输入联系方式" {...field} />
+                <Input placeholder="请输入电话、邮箱等联系方式" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -113,7 +96,7 @@ export function SubmitContcatForm() {
             <FormItem>
               <FormLabel>留言</FormLabel>
               <FormControl>
-                <Input placeholder="请输入留言" {...field} />
+                <Textarea placeholder="请输入留言" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -128,7 +111,7 @@ export function SubmitContcatForm() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.15 }}
             >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+              {isSubmitting ? '提交中...' : '提交'}
             </motion.span>
           </AnimatePresence>
         </Button>

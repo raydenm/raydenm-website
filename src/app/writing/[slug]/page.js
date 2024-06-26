@@ -6,8 +6,7 @@ import { RichText } from '@/components/contentful/rich-text'
 import { PageTitle } from '@/components/page-title'
 import { FloatingHeader } from '@/components/floating-header'
 import { WritingViews } from '@/components/writing-views'
-import { ClientOnly } from '@/components/client-only'
-import { getPost, getWritingSeo, getAllPostSlugs } from '@/lib/contentful'
+import { getPost, getAllPostSlugs } from '@/lib/contentful'
 import { getDateTimeFormat, isDevelopment } from '@/lib/utils'
 
 export async function generateStaticParams() {
@@ -32,29 +31,12 @@ export default async function WritingSlug({ params }) {
   const {
     title,
     date,
-    seo: { title: seoTitle, description: seoDescription },
     content,
-    sys: { firstPublishedAt, publishedAt: updatedAt }
+    sys: { firstPublishedAt }
   } = data
 
   const postDate = date || firstPublishedAt
   const dateString = getDateTimeFormat(postDate)
-  const datePublished = new Date(postDate).toISOString()
-  const dateModified = new Date(updatedAt).toISOString()
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: seoTitle,
-    description: seoDescription,
-    datePublished,
-    dateModified,
-    author: {
-      '@type': 'Person',
-      name: 'Raydenm'
-    },
-    url: `https://raydenm.zeabur.app/writing/${slug}`
-  }
 
   return (
     <>
@@ -77,46 +59,6 @@ export default async function WritingSlug({ params }) {
           </article>
         </div>
       </ScrollArea>
-      <ClientOnly>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd, null, 2) }} />
-      </ClientOnly>
     </>
   )
-}
-
-export async function generateMetadata({ params }) {
-  const { slug } = params
-  const seoData = await getWritingSeo(slug)
-  if (!seoData) return null
-
-  const {
-    date,
-    seo: { title, description, keywords },
-    sys: { firstPublishedAt, publishedAt: updatedAt }
-  } = seoData
-
-  const siteUrl = `/writing/${slug}`
-  const postDate = date || firstPublishedAt
-  const publishedTime = new Date(postDate).toISOString()
-  const modifiedTime = new Date(updatedAt).toISOString()
-
-  return {
-    title,
-    description,
-    keywords,
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      publishedTime,
-      ...(updatedAt && {
-        modifiedTime
-      }),
-      url: siteUrl,
-      images: siteUrl + '/og.png'
-    },
-    alternates: {
-      canonical: siteUrl
-    }
-  }
 }

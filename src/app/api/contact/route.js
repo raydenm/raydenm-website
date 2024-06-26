@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function POST(request) {
   try {
     const payload = await request.json()
-    const { name, email, phone, message } = payload
+    const { name, contact, message } = payload
 
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
@@ -14,8 +14,7 @@ export async function POST(request) {
       subject: `raydenm-website-contact-${name}`,
       html: `<div>
         <p>姓名: ${name}</p>
-        <p>邮箱: ${email}</p>
-        <p>联系方式: ${phone}</p>
+        <p>联系方式: ${contact}</p>
         <p>留言: ${message}</p>
       </div>`
     })

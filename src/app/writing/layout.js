@@ -17,7 +17,7 @@ export default async function WritingLayout({ children }) {
 
   return (
     <>
-      <SideMenu title="Writing" isInner>
+      <SideMenu title="文章" isInner>
         <Suspense fallback={<ScreenLoadingSpinner />}>
           <WritingListLayout list={sortedPosts} />
         </Suspense>

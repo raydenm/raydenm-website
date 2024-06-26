@@ -122,11 +122,6 @@ export const LINKS = [
     href: '/photo',
     label: '相册',
     icon: <Images size={16} />
-  },
-  {
-    href: '/contact',
-    label: '联系我',
-    icon: <User size={16} />
   }
 ]
 
@@ -212,11 +207,15 @@ export const SCROLL_AREA_ID = 'scroll-area'
 export const MOBILE_SCROLL_THRESHOLD = 20
 export const SUPABASE_TABLE_NAME = 'pages'
 
-export const SUBMIT_BOOKMARK_FORM_TITLE = 'Submit a bookmark'
+export const SUBMIT_BOOKMARK_FORM_TITLE = '提交书签'
 export const SUBMIT_BOOKMARK_FORM_DESCRIPTION =
-  "Send me a website you like and if I like it too, you'll see it in the bookmarks list. With respect, please do not submit more than 5 websites a day."
-export const MAX_BOOKMARK_SUBMISSIONS_PER_DAY = 5
+  '提交一个网站, 如果是一个非常棒的网站, 我会加入到我的书签, 分享给大家。一天不要超过10次。'
+export const MAX_BOOKMARK_SUBMISSIONS_PER_DAY = 10
 export const BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME = 'formSubmissionCount'
+
+export const SUBMIT_CONTCAT_FORM_TITLE = '联系我'
+export const SUBMIT_CONTCAT_FORM_DESCRIPTION =
+  '感谢您访问我的网站！如果您有任何问题、建议或合作意向，欢迎随时与我联系。'
 
 export const CONTENT_TYPES = {
   PAGE: 'page',

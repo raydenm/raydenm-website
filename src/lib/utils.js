@@ -38,9 +38,9 @@ export const isExternalLink = (href) => {
  */
 export const getDateTimeFormat = (date) => {
   const dateObj = new Date(date)
-  return Intl.DateTimeFormat('en-US', {
+  return Intl.DateTimeFormat('zh-CN', {
     year: 'numeric',
-    month: 'long',
+    month: '2-digit',
     day: '2-digit',
     timeZone: 'UTC'
   }).format(dateObj)
