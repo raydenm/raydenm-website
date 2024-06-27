@@ -18,6 +18,7 @@ async function fetchData() {
 
 export default async function BookmarksLayout({ children }) {
   const { bookmarks } = await fetchData()
+  console.log(bookmarks)
 
   return (
     <>
@@ -29,7 +30,7 @@ export default async function BookmarksLayout({ children }) {
                 return (
                   <ListItem
                     key={bookmark._id}
-                    path={`/bookmarks/${encodeURIComponent(bookmark.title)}`}
+                    path={`/bookmarks/${bookmark.slug}`}
                     title={bookmark.title}
                     description={`${bookmark.count} bookmarks`}
                   />

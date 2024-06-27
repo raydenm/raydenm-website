@@ -24,7 +24,7 @@ export default async function Writing() {
           return (
             <Link
               key={bookmark._id}
-              href={`/bookmarks/${encodeURIComponent(bookmark.title)}`}
+              href={`/bookmarks/${bookmark.slug}`}
               className="flex flex-col gap-1 border-b px-4 py-3 text-sm hover:bg-gray-100"
             >
               <span className="font-medium">{bookmark.title}</span>
