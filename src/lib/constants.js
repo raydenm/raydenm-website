@@ -9,7 +9,6 @@ import {
   Wand2Icon,
   BookmarkIcon,
   // ArmchairIcon,
-  User,
   Boxes,
   Images
 } from 'lucide-react'

@@ -2,10 +2,10 @@
 
 import dynamic from 'next/dynamic'
 import { useRouter, usePathname } from 'next/navigation'
-import { RadioIcon } from 'lucide-react'
+// import { RadioIcon } from 'lucide-react'
 
 import { ScrollArea } from '@/components/scroll-area'
-import { Button } from '@/components/ui/button.jsx'
+// import { Button } from '@/components/ui/button.jsx'
 import { LoadingSpinner } from '@/components/loading-spinner'
 const SubmitBookmarkDialog = dynamic(
   () => import('@/components/submit-bookmark/dialog').then((mod) => mod.SubmitBookmarkDialog),
@@ -43,7 +43,7 @@ export const SideMenu = ({ children, title, bookmarks = [], isInner }) => {
     if (targetPathname && targetPathname !== pathname) router.push(targetPathname)
   }
 
-  const isWritingPath = pathname.startsWith('/writing')
+  // const isWritingPath = pathname.startsWith('/writing')
   const isBookmarksPath = pathname.startsWith('/bookmarks')
   const currentBookmark = bookmarks.find((bookmark) => `/bookmarks/${bookmark.slug}` === pathname)
 
