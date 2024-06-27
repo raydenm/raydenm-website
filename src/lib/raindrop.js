@@ -30,7 +30,7 @@ export const getBookmarkItems = cache(async (id, pageIndex = 0) => {
 
 export const getBookmarks = cache(async () => {
   try {
-    const response = await fetch(`${RAINDROP_API_URL}/collections`, options)
+    const response = await fetch(`${RAINDROP_API_URL}/collections?time=${Date.now()}`, options)
     const bookmarks = await response.json()
     return bookmarks.items
   } catch (error) {
