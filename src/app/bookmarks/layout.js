@@ -29,7 +29,7 @@ export default async function BookmarksLayout({ children }) {
                 return (
                   <ListItem
                     key={bookmark._id}
-                    path={`/bookmarks/${bookmark.slug}`}
+                    path={`/bookmarks/${encodeURIComponent(bookmark.title)}`}
                     title={bookmark.title}
                     description={`${bookmark.count} bookmarks`}
                   />

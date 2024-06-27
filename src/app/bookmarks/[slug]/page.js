@@ -14,9 +14,9 @@ export async function generateStaticParams() {
   return bookmarks.map((bookmark) => ({ slug: bookmark.slug }))
 }
 
-async function fetchData(slug) {
+async function fetchData(title) {
   const bookmarks = await getBookmarks()
-  const currentBookmark = bookmarks.find((bookmark) => bookmark.slug === slug)
+  const currentBookmark = bookmarks.find((bookmark) => bookmark.title === title)
   if (!currentBookmark) notFound()
 
   const sortedBookmarks = sortByProperty(bookmarks, 'title')
@@ -30,8 +30,9 @@ async function fetchData(slug) {
 }
 
 export default async function CollectionPage({ params }) {
-  const { slug } = params
-  const { bookmarks, currentBookmark, bookmarkItems } = await fetchData(slug)
+  const { title } = params
+  const decodedsTitle = decodeURIComponent(title)
+  const { bookmarks, currentBookmark, bookmarkItems } = await fetchData(decodedsTitle)
 
   return (
     <ScrollArea className="bg-grid" useScrollAreaId>
