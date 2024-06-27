@@ -18,7 +18,6 @@ async function fetchData() {
 
 export default async function BookmarksLayout({ children }) {
   const { bookmarks } = await fetchData()
-  console.log(bookmarks)
 
   return (
     <>
