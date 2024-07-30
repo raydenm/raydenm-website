@@ -21,9 +21,9 @@ const SubmitContcatDrawer = dynamic(
 
 export const ContcatContent = () => {
   return (
-    <div>
-      <h2 className="mb-4 mt-8">联系我</h2>
-      <div className="mb-4">如果您有任何问题、建议或合作意向，欢迎随时与我联系。</div>
+    <div className="mt-4">
+      {/* <h2 className="mb-4 mt-8">联系我</h2>
+      <div className="mb-4">如果您有任何问题、建议或合作意向，欢迎随时与我联系。</div> */}
       <div className="hidden lg:block">
         <SubmitContcatDialog />
       </div>

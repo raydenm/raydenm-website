@@ -13,6 +13,11 @@ import {
   Images
 } from 'lucide-react'
 
+import ReactIcon from '@/assets/stack/reactjs.svg'
+import VueIcon from '@/assets/stack/vuejs.svg'
+import TauriIcon from '@/assets/stack/tauri.svg'
+import ExpoIcon from '@/assets/stack/expo.svg'
+
 // export const TWEETS_COLLECTION_ID = 15896982
 
 export const PROFILES = {
@@ -202,13 +207,55 @@ export const WORKSPACE_ITEMS = [
   }
 ]
 
+export const STACK_LIST = [
+  {
+    title: 'React',
+    url: 'https://react.dev',
+    icon: ReactIcon
+  },
+  {
+    title: 'Vue',
+    url: 'https://vuejs.org',
+    icon: VueIcon
+  },
+  {
+    title: 'Tauri',
+    url: 'https://tauri.app',
+    icon: TauriIcon
+  },
+  {
+    title: 'Expo',
+    url: 'https://expo.dev',
+    icon: ExpoIcon
+  }
+  // {
+  //   title: 'Next.js',
+  //   url: '',
+  //   icon: ''
+  // },
+  // {
+  //   title: 'React Native',
+  //   url: '',
+  //   icon: ''
+  // },
+  // {
+  //   title: 'Electron',
+  //   url: '',
+  //   icon: ''
+  // },
+  // {
+  //   title: 'Nuxt.js',
+  //   url: '',
+  //   icon: ''
+  // }
+]
+
 export const SCROLL_AREA_ID = 'scroll-area'
 export const MOBILE_SCROLL_THRESHOLD = 20
 export const SUPABASE_TABLE_NAME = 'pages'
 
-export const SUBMIT_BOOKMARK_FORM_TITLE = '提交书签'
-export const SUBMIT_BOOKMARK_FORM_DESCRIPTION =
-  '提交一个网站, 如果是一个非常棒的网站, 我会加入到我的书签, 分享给大家。一天不要超过10次。'
+export const SUBMIT_BOOKMARK_FORM_TITLE = '提交网站'
+export const SUBMIT_BOOKMARK_FORM_DESCRIPTION = '提交一个网站, 如果是一个非常棒的网站, 我会加入到我的书签, 分享给大家。'
 export const MAX_BOOKMARK_SUBMISSIONS_PER_DAY = 10
 export const BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME = 'formSubmissionCount'
 
@@ -220,4 +267,12 @@ export const CONTENT_TYPES = {
   PAGE: 'page',
   POST: 'post',
   LOGBOOK: 'logbook'
+}
+
+export const BOOKMARK_MAP = {
+  design: '设计',
+  tools: '工具',
+  frontend: '前端',
+  'VS Code': 'VS Code 插件',
+  AI: '人工智能'
 }

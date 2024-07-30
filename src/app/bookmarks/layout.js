@@ -5,15 +5,15 @@ import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
 import { ListItem } from '@/components/list-item'
 import { Toaster } from '@/components/ui/sonner'
 import { getBookmarks } from '@/lib/raindrop'
-import { sortByProperty } from '@/lib/utils'
+// import { sortByProperty } from '@/lib/utils'
 
 // Revalidate all routes every 2 days
 export const revalidate = 60 * 60 * 24 * 2 // 2 days
 
 async function fetchData() {
   const bookmarks = await getBookmarks()
-  const sortedBookmarks = sortByProperty(bookmarks, 'title')
-  return { bookmarks: sortedBookmarks }
+  // const sortedBookmarks = sortByProperty(bookmarks, 'title')
+  return { bookmarks }
 }
 
 export default async function BookmarksLayout({ children }) {
@@ -22,7 +22,7 @@ export default async function BookmarksLayout({ children }) {
   return (
     <>
       <div className="flex w-full">
-        <SideMenu title="Bookmarks" bookmarks={bookmarks} isInner>
+        <SideMenu title="书签" bookmarks={bookmarks} isInner>
           <Suspense fallback={<ScreenLoadingSpinner />}>
             <div className="flex flex-col gap-1 text-sm">
               {bookmarks?.map((bookmark) => {

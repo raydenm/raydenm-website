@@ -1,20 +1,20 @@
 'use server'
 
-import { cookies } from 'next/headers'
+// import { cookies } from 'next/headers'
 
 import { getBookmarkItems } from '@/lib/raindrop'
-import { MAX_BOOKMARK_SUBMISSIONS_PER_DAY, BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME } from '@/lib/constants'
+// import { MAX_BOOKMARK_SUBMISSIONS_PER_DAY, BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME } from '@/lib/constants'
 
 export async function submitBookmark(formData) {
-  const cookieStore = cookies()
+  // const cookieStore = cookies()
 
   // Fake promise to simulate submitting the form
   await new Promise((resolve) => setTimeout(resolve, 2000))
 
-  const formSubmissionCountCookie = cookieStore.get(BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME)
-  if (formSubmissionCountCookie?.value >= MAX_BOOKMARK_SUBMISSIONS_PER_DAY) {
-    throw new Error('已达到当日可提交最大值, 请明日再试!')
-  }
+  // const formSubmissionCountCookie = cookieStore.get(BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME)
+  // if (formSubmissionCountCookie?.value >= MAX_BOOKMARK_SUBMISSIONS_PER_DAY) {
+  //   throw new Error('已达到当日可提交最大值, 请明日再试!')
+  // }
 
   try {
     const response = await fetch(
@@ -37,13 +37,13 @@ export async function submitBookmark(formData) {
       }
     )
 
-    cookieStore.set(
-      formSubmissionCountCookie?.name ?? BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME, // Name
-      Number(formSubmissionCountCookie?.value ?? 0) + 1, // Value
-      {
-        maxAge: 60 * 60 * 24 // 24 hours
-      }
-    )
+    // cookieStore.set(
+    //   formSubmissionCountCookie?.name ?? BOOKMARK_SUBMISSION_COUNT_COOKIE_NAME, // Name
+    //   Number(formSubmissionCountCookie?.value ?? 0) + 1, // Value
+    //   {
+    //     maxAge: 60 * 60 * 24 // 24 hours
+    //   }
+    // )
 
     const data = await response.json()
     return data

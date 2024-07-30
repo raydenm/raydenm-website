@@ -29,7 +29,7 @@ export const SubmitBookmarkDialog = ({ bookmarks, currentBookmark }) => {
       <DialogTrigger asChild>
         <Button size="xs" className="relative">
           <SendIcon size={16} className="mr-2" />
-          Submit
+          提交网站
         </Button>
       </DialogTrigger>
       <DialogContent>
