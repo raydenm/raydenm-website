@@ -13,7 +13,6 @@ and more.
 - `/workspace` — Workspace page.
 - `/bookmarks` — Bookmarks page.
 - `/bookmarks/[slug]` — Static pre-rendered bookmarks pages using [Raindrop](https://raindrop.io/).
-- `/bookmarks.xml` — Bookmarks XML feed.
 - `/api` — API routes.
 
 ## Running Locally

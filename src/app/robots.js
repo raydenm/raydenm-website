@@ -4,7 +4,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/'
     },
-    sitemap: 'https://raydenm.zeabur.app/sitemap.xml',
     host: 'https://raydenm.zeabur.app'
   }
 }

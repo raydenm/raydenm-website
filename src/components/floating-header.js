@@ -88,19 +88,6 @@ export const FloatingHeader = memo(({ scrollTitle, title, goBackLink, bookmarks,
                 </Balancer>
               )}
               <div className="flex items-center gap-2">
-                {/* {(isWritingIndexPage || isBookmarksIndexPage) && (
-                  <Button variant="outline" size="xs" asChild>
-                    <a
-                      href={isWritingIndexPage ? '/writing.xml' : '/bookmarks.xml'}
-                      title="RSS feed"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <RadioIcon size={16} className="mr-2" />
-                      RSS feed
-                    </a>
-                  </Button>
-                )} */}
                 {isBookmarkPath && <SubmitBookmarkDrawer bookmarks={bookmarks} currentBookmark={currentBookmark} />}
               </div>
             </div>
