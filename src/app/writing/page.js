@@ -18,7 +18,7 @@ export default async function Writing() {
 
   return (
     <ScrollArea className="lg:hidden">
-      <FloatingHeader title="Writing" />
+      <FloatingHeader title="文章" />
       <Suspense fallback={<ScreenLoadingSpinner />}>
         <WritingListLayout list={sortedPosts} isMobile />
       </Suspense>

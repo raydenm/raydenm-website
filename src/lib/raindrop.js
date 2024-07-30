@@ -1,6 +1,8 @@
 import { cache } from 'react'
 import 'server-only'
 
+import { BOOKMARK_MAP } from './constants'
+
 const options = {
   method: 'GET',
   headers: {
@@ -17,7 +19,8 @@ export const getBookmarkItems = cache(async (id, pageIndex = 0) => {
       `${RAINDROP_API_URL}/raindrops/${id}?` +
         new URLSearchParams({
           page: pageIndex,
-          perpage: 50
+          perpage: 50,
+          time: Date.now()
         }),
       options
     )
@@ -32,7 +35,11 @@ export const getBookmarks = cache(async () => {
   try {
     const response = await fetch(`${RAINDROP_API_URL}/collections?time=${Date.now()}`, options)
     const bookmarks = await response.json()
-    return bookmarks.items
+    const bookmarkList = bookmarks.items.map((bookmark) => ({
+      ...bookmark,
+      title: BOOKMARK_MAP[bookmark.title] || bookmark.title
+    }))
+    return bookmarkList
   } catch (error) {
     console.info(error)
     return null

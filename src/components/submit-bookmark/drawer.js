@@ -23,7 +23,7 @@ export const SubmitBookmarkDrawer = ({ bookmarks, currentBookmark }) => {
       <DrawerTrigger asChild>
         <Button size="xs" className="relative">
           <SendIcon size={16} className="mr-2" />
-          Submit
+          提交网站
         </Button>
       </DrawerTrigger>
       <DrawerContent className="px-6">

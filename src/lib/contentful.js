@@ -274,6 +274,7 @@ export const getAllLogbook = cache(async (preview = isDevelopment) => {
             title
             date
             description
+            location
             image {
               url(transform: {
                 format: AVIF,

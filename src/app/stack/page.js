@@ -4,17 +4,17 @@ import { GradientBg } from '@/components/gradient-bg'
 import { FloatingHeader } from '@/components/floating-header'
 import { PageTitle } from '@/components/page-title'
 import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
-import { ProjectList } from '@/components/project-list'
-export default async function Project() {
+import { StackList } from '@/components/stack-list'
+export default async function Stack() {
   return (
     <ScrollArea useScrollAreaId>
       <GradientBg />
-      <FloatingHeader scrollTitle="项目集" />
+      <FloatingHeader scrollTitle="技术找" />
       <div className="content-wrapper">
         <div className="content">
-          <PageTitle title="项目集" />
+          <PageTitle title="技术找" />
           <Suspense fallback={<ScreenLoadingSpinner />}>
-            <ProjectList />
+            <StackList />
           </Suspense>
         </div>
       </div>

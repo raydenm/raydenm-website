@@ -15,10 +15,10 @@ import { cn } from '@/lib/utils'
 
 const formSchema = z.object({
   url: z.string().url({
-    message: 'Invalid URL.'
+    message: '请输入正确的网站地址！'
   }),
   email: z.string().email({
-    message: 'Invalid email address.'
+    message: '请输入正确的邮箱！'
   }),
   type: z.string().optional()
 })
@@ -70,7 +70,7 @@ export function SubmitBookmarkForm({ className, setFormOpen, bookmarks, currentB
           name="url"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Website URL</FormLabel>
+              <FormLabel>网站地址</FormLabel>
               <FormControl>
                 <Input placeholder="https://example.com" {...field} />
               </FormControl>
@@ -83,9 +83,9 @@ export function SubmitBookmarkForm({ className, setFormOpen, bookmarks, currentB
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>邮箱</FormLabel>
               <FormControl>
-                <Input placeholder="johndoe@gmail.com" {...field} />
+                <Input placeholder="send@gmail.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -96,11 +96,11 @@ export function SubmitBookmarkForm({ className, setFormOpen, bookmarks, currentB
           name="type"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Type</FormLabel>
+              <FormLabel>网站类型</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a bookmark type" />
+                    <SelectValue placeholder="选择一个网站类型" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -111,14 +111,13 @@ export function SubmitBookmarkForm({ className, setFormOpen, bookmarks, currentB
                   ))}
                 </SelectContent>
               </Select>
-              <FormDescription>Optional but helps me categorize the bookmark.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" className="w-full" disabled={isSubmitting || errors?.api?.limitError}>
           {hasErrors ? (
-            'Submit'
+            '提交'
           ) : (
             <AnimatePresence mode="wait" initial={false}>
               <motion.span
@@ -128,7 +127,7 @@ export function SubmitBookmarkForm({ className, setFormOpen, bookmarks, currentB
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.15 }}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit'}
+                {isSubmitting ? '提交中...' : '提交'}
               </motion.span>
             </AnimatePresence>
           )}

@@ -5,12 +5,12 @@ import { ScrollArea } from '@/components/scroll-area'
 import { FloatingHeader } from '@/components/floating-header'
 import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
 import { getBookmarks } from '@/lib/raindrop'
-import { sortByProperty } from '@/lib/utils'
+// import { sortByProperty } from '@/lib/utils'
 
 async function fetchData() {
   const bookmarks = await getBookmarks()
-  const sortedBookmarks = sortByProperty(bookmarks, 'title')
-  return { bookmarks: sortedBookmarks }
+  // const sortedBookmarks = sortByProperty(bookmarks, 'title')
+  return { bookmarks }
 }
 
 export default async function Writing() {
