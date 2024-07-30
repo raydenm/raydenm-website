@@ -35,7 +35,7 @@ export const getBookmarks = cache(async () => {
   try {
     const response = await fetch(`${RAINDROP_API_URL}/collections?time=${Date.now()}`, options)
     const bookmarks = await response.json()
-    const bookmarkList = bookmarks.items.map((bookmark) => ({
+    const bookmarkList = (bookmarks?.items || []).map((bookmark) => ({
       ...bookmark,
       title: BOOKMARK_MAP[bookmark.title] || bookmark.title
     }))

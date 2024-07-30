@@ -6,7 +6,7 @@ export async function GET(request) {
   const searchParams = request.nextUrl.searchParams
   const secret = searchParams.get('secret')
 
-  // https://localhost:3000/api/draft?secret=nMLod-8aC9fEhQkZ-4XMokIlLJD_96t3G41lzaIaMKM
+  // http://localhost:3000/api/draft?secret=nMLod-8aC9fEhQkZ-4XMokIlLJD_96t3G41lzaIaMKM
   if (secret !== process.env.CONTENTFUL_PREVIEW_SECRET) {
     return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
   }
