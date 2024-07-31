@@ -8,6 +8,9 @@ dependencies:
   '@contentful/rich-text-react-renderer':
     specifier: ^15.18.0
     version: 15.21.2(react-dom@18.3.1)(react@18.3.1)
+  '@contentful/rich-text-types':
+    specifier: ^16.8.3
+    version: 16.8.3
   '@hookform/resolvers':
     specifier: ^3.3.4
     version: 3.6.0(react-hook-form@7.52.0)
@@ -562,13 +565,13 @@ packages:
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@contentful/rich-text-types': 16.5.2
+      '@contentful/rich-text-types': 16.8.3
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /@contentful/rich-text-types@16.5.2:
-    resolution: {integrity: sha512-qD98Amp/vWxCYMtv7yprh4Ry3QHFX50sf+i3E6e/WRquz+aUW2ilqmQqW6ucb4F2dlatUxMbOOhZOFazv2XLjg==}
+  /@contentful/rich-text-types@16.8.3:
+    resolution: {integrity: sha512-vXwXDQMDbqITCWfTkU5R/q+uvXWCc1eYNvdZyjtrs0YDIYr4L7QJ2s1r4ZheIs3iVf3AFucKIHgDSpwCAm2wKA==}
     engines: {node: '>=6.0.0'}
     dev: false
 
