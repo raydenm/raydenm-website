@@ -21,7 +21,8 @@ function options(links) {
     renderMark: {
       [MARKS.BOLD]: (text) => <span className="font-semibold text-black">{text}</span>,
       [MARKS.ITALIC]: (text) => <span className="italic">{text}</span>,
-      [MARKS.CODE]: (text) => <code className="inline-code">{text}</code>
+      // <code className="inline-code">{text}</code>
+      [MARKS.CODE]: (text) => <CodeBlock code={text} />
     },
     renderNode: {
       [BLOCKS.HEADING_2]: (_, children) => {
