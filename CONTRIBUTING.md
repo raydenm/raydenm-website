@@ -7,7 +7,6 @@
 - `ci`: all changes regarding the configuration of continuous integration (i.e. github actions, ci system)
 - `chore`: all changes to the repository that do not fit into any of the above categories
 
-  e.g. `feat(components): add new prop to the avatar component`
 
 - `feat / feature`：引入全新代码或新功能的所有更改
 - `fix`：修复错误的更改（理想情况下，如果存在问题，您还将引用问题）
@@ -16,4 +15,4 @@
 - `build`：有关软件构建、依赖项更改或添加新依赖项的所有更改
 - `test`：有关测试的所有更改（添加新测试或更改现有测试）
 - `ci`：有关持续集成配置的所有更改（即 github 操作、ci 系统）
-- `chore`：对存储库的所有更改，这些更改不属于上述任何类别例如 `feat(components): 向头像组件添加新 prop`
+- `chore`：对存储库的所有更改，这些更改不属于上述任何类别例如 

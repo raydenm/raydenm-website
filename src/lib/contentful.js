@@ -62,6 +62,7 @@ export const getPost = cache(async (slug, preview = isDevelopment) => {
             title
             slug
             date
+            markdown
             seo {
               title
               description

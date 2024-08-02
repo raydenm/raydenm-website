@@ -20,7 +20,8 @@ export const getBookmarkItems = cache(async (id, pageIndex = 0) => {
         new URLSearchParams({
           page: pageIndex,
           perpage: 50,
-          time: Date.now()
+          time: Date.now(),
+          sort: 'created'
         }),
       options
     )

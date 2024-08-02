@@ -8,6 +8,9 @@ import { FloatingHeader } from '@/components/floating-header'
 import { WritingViews } from '@/components/writing-views'
 import { getPost, getAllPostSlugs } from '@/lib/contentful'
 import { getDateTimeFormat, isDevelopment } from '@/lib/utils'
+import Markdown from 'react-markdown'
+import rehypeHighlight from 'rehype-highlight'
+import 'highlight.js/styles/github-dark.css'
 
 export async function generateStaticParams() {
   const allPosts = await getAllPostSlugs()
@@ -32,6 +35,7 @@ export default async function WritingSlug({ params }) {
     title,
     date,
     content,
+    markdown,
     sys: { firstPublishedAt }
   } = data
 
@@ -55,7 +59,8 @@ export default async function WritingSlug({ params }) {
               }
               className="mb-6 flex flex-col gap-3"
             />
-            <RichText content={content} />
+            {content && <RichText content={content} />}
+            {markdown && <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>}
           </article>
         </div>
       </ScrollArea>

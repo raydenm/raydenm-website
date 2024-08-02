@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button.jsx'
 
 export function CodeBlock({ title, code }) {
   const [copied, setCopied] = useState(false)
+  // const codeHTML = highlight(code)
   const codeHTML = highlight(code)
 
   const onCopy = () => {
