@@ -3,6 +3,7 @@ import { draftMode } from 'next/headers'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { EyeIcon } from 'lucide-react'
+import { Toaster } from '@/components/ui/sonner'
 
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { SideMenu } from '@/components/side-menu'
@@ -35,6 +36,13 @@ export default async function RootLayout({ children }) {
           </div>
         </main>
         <TailwindIndicator />
+        <Toaster
+          closeButton
+          richColors
+          toastOptions={{
+            duration: 5000
+          }}
+        />
       </body>
     </html>
   )

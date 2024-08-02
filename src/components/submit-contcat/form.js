@@ -38,6 +38,7 @@ export function SubmitContcatForm({ className, setFormOpen }) {
 
   function onSubmit(values) {
     console.log(values)
+    setIsSubmitting(true)
     fetch('/api/contact', {
       method: 'POST',
       headers: {

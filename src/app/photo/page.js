@@ -13,35 +13,7 @@ export default async function Photo() {
       <div className="content-wrapper">
         <div className="content">
           <PageTitle title="相册" />
-          <Suspense fallback={<ScreenLoadingSpinner />}>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-            <div>待补充...</div>
-          </Suspense>
+          <Suspense fallback={<ScreenLoadingSpinner />}></Suspense>
         </div>
       </div>
     </ScrollArea>

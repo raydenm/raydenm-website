@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --sh-identifier: #171717;
+    /* --sh-identifier: #171717;
     --sh-sign: #8996a3;
     --sh-property: hsl(278.93deg 100% 36.12%);
     --sh-entity: hsl(210.8deg 100% 38.9%);
     --sh-jsxliterals: #6266d1;
     --sh-string: hsl(138.58deg 77.94% 27.65%);
     --sh-keyword: rgb(215, 58, 73);
-    --sh-comment: #a19595;
+    --sh-comment: #a19595; */
   }
 
   ::selection {
@@ -43,7 +43,7 @@
   }
 
   p {
-    @apply mb-6 leading-slacker;
+    @apply mb-4 leading-slacker;
   }
 
   a,
@@ -71,27 +71,28 @@
   }
 
   h1 {
-    @apply text-2xl md:text-3xl;
+    @apply text-2xl md:text-3xl mt-4 mb-4;
+    text-wrap: wrap !important;
   }
 
   h2 {
-    @apply text-lg md:text-xl;
+    @apply text-lg md:text-2xl  mt-3 mb-3;
   }
 
   h3 {
-    @apply md:text-lg;
+    @apply md:text-xl  mt-2 mb-2;
   }
 
   h4 {
-    @apply text-lg font-semibold;
+    @apply text-xl font-semibold  mt-2 mb-2;
+  }
+
+  h5 {
+    @apply text-lg font-semibold  mt-1 mb-1;
   }
 
   h6 {
-    @apply text-base font-semibold;
-  }
-
-  h2 + h3 {
-    @apply !mt-0;
+    @apply text-base font-semibold  mt-1 mb-1;
   }
 
   ol {
@@ -160,7 +161,7 @@
   }
 
   .content-wrapper {
-    @apply z-[1] w-full px-6 pb-8 pt-8 lg:px-8 lg:pb-16 lg:pt-24;
+    @apply z-[1] w-full px-6 pb-8 pt-4 lg:px-8 lg:pb-16 lg:pt-16;
   }
 
   .content {
@@ -216,4 +217,12 @@
 pre code .sh__line {
   padding-left: 4px;
   padding-right: 4px;
+}
+
+pre code.hljs {
+  border-radius: 8px;
+}
+
+pre {
+  padding-top: 0;
 }
