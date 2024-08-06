@@ -5,14 +5,9 @@ import { ScreenLoadingSpinner } from '@/components/screen-loading-spinner'
 import { ListItem } from '@/components/list-item'
 import { Toaster } from '@/components/ui/sonner'
 import { getBookmarks } from '@/lib/raindrop'
-// import { sortByProperty } from '@/lib/utils'
-
-// Revalidate all routes every 2 days
-export const revalidate = 60 * 60 * 24 * 2 // 2 days
 
 async function fetchData() {
   const bookmarks = await getBookmarks()
-  // const sortedBookmarks = sortByProperty(bookmarks, 'title')
   return { bookmarks }
 }
 
@@ -52,6 +47,5 @@ export default async function BookmarksLayout({ children }) {
 }
 
 export const viewport = {
-  //  To fix the zoom issue on mobile for the bookmark submit form
   maximumScale: 1
 }
