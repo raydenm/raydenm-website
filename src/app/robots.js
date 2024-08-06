@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/'
     },
-    host: 'https://raydenm.zeabur.app'
+    host: process.env.WEBSITE_URL
   }
 }

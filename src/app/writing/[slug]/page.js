@@ -67,3 +67,19 @@ export default async function WritingSlug({ params }) {
     </>
   )
 }
+
+export async function generateMetadata({ params }) {
+  const { slug } = params
+
+  const siteUrl = `/writing/${slug}`
+
+  return {
+    openGraph: {
+      type: 'article',
+      url: siteUrl
+    },
+    alternates: {
+      canonical: siteUrl
+    }
+  }
+}
