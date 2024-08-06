@@ -11,7 +11,7 @@ import { getDateTimeFormat, isDevelopment } from '@/lib/utils'
 import Markdown from 'react-markdown'
 import rehypeHighlight from 'rehype-highlight'
 import 'highlight.js/styles/github-dark.css'
-
+import Commento from '@/components/writing/commento'
 export async function generateStaticParams() {
   const allPosts = await getAllPostSlugs()
   return allPosts.map((post) => ({ slug: post.slug }))
@@ -62,6 +62,7 @@ export default async function WritingSlug({ params }) {
             {content && <RichText content={content} />}
             {markdown && <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>}
           </article>
+          <Commento />
         </div>
       </ScrollArea>
     </>

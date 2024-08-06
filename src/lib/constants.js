@@ -37,7 +37,7 @@ import TypescriptIcon from '@/assets/stack/typescript.svg'
 // import Html5Icon from '@/assets/stack/html5.svg'
 import RadixuiIcon from '@/assets/stack/radixui.svg'
 import BashIcon from '@/assets/stack/bash.svg'
-import ResendIcon from '@/assets/stack/resend.svg'
+// import ResendIcon from '@/assets/stack/resend.svg'
 import MarkdownIcon from '@/assets/stack/markdown.svg'
 import ChromeIcon from '@/assets/stack/chrome.svg'
 import ArcIcon from '@/assets/stack/arc.svg'
@@ -55,6 +55,7 @@ import NodejsIcon from '@/assets/stack/nodejs.svg'
 import PwaIcon from '@/assets/stack/pwa.svg'
 import SassIcon from '@/assets/stack/sass.svg'
 import ReduxIcon from '@/assets/stack/redux.svg'
+import AntdesignIcon from '@/assets/stack/antdesign.svg'
 
 export const PROFILES = {
   github: {
@@ -285,10 +286,15 @@ export const STACK_LIST = [
     icon: BashIcon
   },
   {
-    title: 'Resend',
-    url: 'https://resend.com/',
-    icon: ResendIcon
+    title: 'Ant Design',
+    url: 'https://ant.design/',
+    icon: AntdesignIcon
   },
+  // {
+  //   title: 'Resend',
+  //   url: 'https://resend.com/',
+  //   icon: ResendIcon
+  // },
   {
     title: 'Markdown',
     url: 'https://www.markdownguide.org/',
@@ -386,7 +392,7 @@ export const BOOKMARK_MAP = {
 
 export const SCROLL_AREA_ID = 'scroll-area'
 export const MOBILE_SCROLL_THRESHOLD = 20
-export const SUPABASE_TABLE_NAME = 'pages'
+export const SUPABASE_TABLE_NAME = 'view_data'
 
 export const SUBMIT_BOOKMARK_FORM_TITLE = '提交网站'
 export const SUBMIT_BOOKMARK_FORM_DESCRIPTION = '提交一个网站, 如果是一个非常棒的网站, 我会加入到我的书签, 分享给大家。'

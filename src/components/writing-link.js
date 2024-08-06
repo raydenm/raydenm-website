@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
-
 import { cn, getDateTimeFormat, viewCountFormatter } from '@/lib/utils'
 
 export const WritingLink = ({ post, viewCount, isMobile, isActive }) => {
@@ -32,7 +31,7 @@ export const WritingLink = ({ post, viewCount, isMobile, isActive }) => {
                 transition={{ duration: 0.3 }}
                 className="tabular-nums"
               >
-                &middot; {formattedViewCount} {formattedViewCount === 1 ? 'view' : 'views'}
+                ，{formattedViewCount} 阅读
               </m.span>
             ) : (
               <m.span key={`${post.slug}-views-loading`} />

@@ -21,36 +21,36 @@ export const useViewData = (slug) => {
     getViewData()
   }, [slug])
 
-  useEffect(() => {
-    function handleRealtimeChange(payload) {
-      if (payload?.new?.slug) {
-        setViewData((prev) => {
-          if (!prev) return null
-          const index = prev.findIndex((item) => item.slug === payload.new.slug)
-          index !== -1 ? (prev[index] = payload.new) : prev.push(payload.new)
-          return [...prev]
-        })
-      }
-    }
+  // useEffect(() => {
+  //   function handleRealtimeChange(payload) {
+  //     if (payload?.new?.slug) {
+  //       setViewData((prev) => {
+  //         if (!prev) return null
+  //         const index = prev.findIndex((item) => item.slug === payload.new.slug)
+  //         index !== -1 ? (prev[index] = payload.new) : prev.push(payload.new)
+  //         return [...prev]
+  //       })
+  //     }
+  //   }
 
-    const channel = supabase
-      .channel('supabase_realtime')
-      .on(
-        'postgres_changes',
-        {
-          event: 'UPDATE',
-          schema: 'public',
-          table: SUPABASE_TABLE_NAME,
-          ...(slug && { filter: `slug=eq.${slug}` })
-        },
-        handleRealtimeChange
-      )
-      .subscribe()
+  //   const channel = supabase
+  //     .channel('supabase_realtime')
+  //     .on(
+  //       'postgres_changes',
+  //       {
+  //         event: 'UPDATE',
+  //         schema: 'public',
+  //         table: SUPABASE_TABLE_NAME,
+  //         ...(slug && { filter: `slug=eq.${slug}` })
+  //       },
+  //       handleRealtimeChange
+  //     )
+  //     .subscribe()
 
-    return () => {
-      supabase.removeChannel(channel)
-    }
-  }, [slug])
+  //   return () => {
+  //     supabase.removeChannel(channel)
+  //   }
+  // }, [slug])
 
   return viewData
 }
