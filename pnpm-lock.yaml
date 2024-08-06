@@ -14,6 +14,9 @@ dependencies:
   '@hookform/resolvers':
     specifier: ^3.3.4
     version: 3.6.0(react-hook-form@7.52.0)
+  '@hyvor/hyvor-talk-react':
+    specifier: 0.0.3-patch.3
+    version: 0.0.3-patch.3(react@18.3.1)
   '@next/third-parties':
     specifier: ^14.1.4
     version: 14.2.4(next@14.2.4)(react@18.3.1)
@@ -678,6 +681,19 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
     dev: true
+
+  /@hyvor/hyvor-talk-base@0.0.6-patch.2:
+    resolution: {integrity: sha512-3EkgDbG+XqbX8S1eUGQQMV2WvFqVi41/H01iL2JuhXkluf2sFt8RwCnF+SEIRL1sndShG+DOlc/C09PERHfHPQ==}
+    dev: false
+
+  /@hyvor/hyvor-talk-react@0.0.3-patch.3(react@18.3.1):
+    resolution: {integrity: sha512-EcWxikcmxI+j3zSKVMxPi5xbTfbKsGqq58VB3IE1g2Lw+AzDiJogwxnkqajKiIGPlyJ0SzibHjFilTux/oUujw==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@hyvor/hyvor-talk-base': 0.0.6-patch.2
+      react: 18.3.1
+    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
