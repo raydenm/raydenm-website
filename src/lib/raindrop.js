@@ -19,7 +19,7 @@ export const getBookmarkItems = cache(async (id, pageIndex = 0) => {
       `${RAINDROP_API_URL}/raindrops/${id}?` +
         new URLSearchParams({
           page: pageIndex,
-          perpage: 50,
+          perpage: 30,
           time: Date.now(),
           sort: 'created'
         }),

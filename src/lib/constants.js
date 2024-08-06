@@ -403,12 +403,6 @@ export const SUBMIT_CONTCAT_FORM_TITLE = '联系我'
 export const SUBMIT_CONTCAT_FORM_DESCRIPTION =
   '感谢您访问我的网站！如果您有任何问题、建议或合作意向，欢迎随时与我联系。'
 
-export const CONTENT_TYPES = {
-  PAGE: 'page',
-  POST: 'post',
-  LOGBOOK: 'logbook'
-}
-
 export const WORKSPACE_ITEMS = [
   {
     title: 'Richard Lampert Eiermann 2 Desk',

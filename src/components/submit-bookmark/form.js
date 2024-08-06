@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { toast } from 'sonner'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -10,7 +11,6 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
-import { submitBookmark } from '@/app/actions'
 import { cn } from '@/lib/utils'
 
 const formSchema = z.object({
@@ -24,42 +24,37 @@ const formSchema = z.object({
 })
 
 export function SubmitBookmarkForm({ className, setFormOpen, bookmarks, currentBookmark }) {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const form = useForm({
     resolver: zodResolver(formSchema),
-    // mode: 'onChange',
     defaultValues: {
       url: '',
       email: '',
       type: currentBookmark?.title ?? ''
     }
   })
-  const {
-    formState: { isSubmitting, errors },
-    setError
-  } = form
-  const hasErrors = Object.keys(errors).length > 0
+  const { reset } = form
 
   async function onSubmit(values) {
-    try {
-      await submitBookmark(values)
-
-      toast('Bookmark submitted!', {
-        type: 'success',
-        description: (
-          <span>
-            <span className="underline underline-offset-4">{values.url}</span> has been submitted. Thank you!
-          </span>
-        )
+    console.log(values)
+    setIsSubmitting(true)
+    fetch('/api/submit-bookmark', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    })
+      .then(() => {
+        toast.success('网站提交成功!')
+        reset()
       })
-    } catch (error) {
-      setError('api.limitError', {
-        type: 'manual',
-        message: error.message
+      .catch(() => toast.error('提交失败, 请稍后再试'))
+      .finally(() => {
+        setIsSubmitting(false)
+        setFormOpen(false)
       })
-      toast.error(error.message)
-    } finally {
-      setFormOpen(false)
-    }
   }
 
   return (
@@ -115,22 +110,18 @@ export function SubmitBookmarkForm({ className, setFormOpen, bookmarks, currentB
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" disabled={isSubmitting || errors?.api?.limitError}>
-          {hasErrors ? (
-            '提交'
-          ) : (
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={isSubmitting ? 'summitting' : 'submit'}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.15 }}
-              >
-                {isSubmitting ? '提交中...' : '提交'}
-              </motion.span>
-            </AnimatePresence>
-          )}
+        <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={isSubmitting ? 'summitting' : 'submit'}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.15 }}
+            >
+              {isSubmitting ? '提交中...' : '提交'}
+            </motion.span>
+          </AnimatePresence>
         </Button>
       </form>
     </Form>

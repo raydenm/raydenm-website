@@ -39,7 +39,7 @@ export function SubmitContcatForm({ className, setFormOpen }) {
   function onSubmit(values) {
     console.log(values)
     setIsSubmitting(true)
-    fetch('/api/contact', {
+    fetch('/api/submit-contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
