@@ -23,5 +23,5 @@ export function Message({ slug }) {
     }
   }, [slug])
 
-  return <div ref={ref} />
+  return <div className="mb-2 mt-10" ref={ref} />
 }

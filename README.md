@@ -21,7 +21,9 @@ Create a `.env` file similar to [`.env.example`].
 
 - [Next.js](https://nextjs.org)
 - [Tailwind CSS](https://tailwindcss.com)
-- [shadcn/ui](https://ui.shadcn.com)
+- [Shadcn UI](https://ui.shadcn.com)
 - [Contentful](https://www.contentful.com)
 - [Raindrop](https://raindrop.io)
 - [Supabase](https://supabase.com)
+- [Resend](https://resend.com)
+- [Utteranc](https://utteranc.es)
