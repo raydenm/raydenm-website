@@ -1,6 +1,6 @@
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
-
+import { Message } from '@/components/writing/message'
 import { ScrollArea } from '@/components/scroll-area'
 import { RichText } from '@/components/contentful/rich-text'
 import { PageTitle } from '@/components/page-title'
@@ -11,7 +11,6 @@ import { getDateTimeFormat, isDevelopment } from '@/lib/utils'
 import Markdown from 'react-markdown'
 import rehypeHighlight from 'rehype-highlight'
 import 'highlight.js/styles/github-dark.css'
-import Commento from '@/components/writing/commento'
 export async function generateStaticParams() {
   const allPosts = await getAllPostSlugs()
   return allPosts.map((post) => ({ slug: post.slug }))
@@ -62,7 +61,7 @@ export default async function WritingSlug({ params }) {
             {content && <RichText content={content} />}
             {markdown && <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>}
           </article>
-          <Commento />
+          <Message slug={slug} />
         </div>
       </ScrollArea>
     </>
