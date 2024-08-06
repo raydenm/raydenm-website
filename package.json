@@ -3,7 +3,7 @@
   "description": "My personal website.",
   "author": {
     "name": "Raydenm",
-    "url": "https://raydenm.zeabur.app/"
+    "url": "https://github.com/raydenm"
   },
   "scripts": {
     "dev": "next dev",

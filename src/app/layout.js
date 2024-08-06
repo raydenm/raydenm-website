@@ -49,7 +49,7 @@ export default async function RootLayout({ children }) {
 }
 
 export const metadata = {
-  metadataBase: new URL('https://raydenm.zeabur.app'),
+  metadataBase: new URL(process.env.WEBSITE_URL),
   robots: {
     index: true,
     follow: true
@@ -57,7 +57,7 @@ export const metadata = {
   title: {
     default: sharedMetadata.title
   },
-  description: sharedMetadata.description,
+  // description: sharedMetadata.description,
   keywords: ['raydenm'],
   alternates: {
     canonical: '/'
