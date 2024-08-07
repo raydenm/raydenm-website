@@ -13,6 +13,54 @@ module.exports = {
       xl: '1280px'
     },
     extend: {
+      colors: {
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        light: {
+          50: '#f5f7f9',
+          100: '#f2f4f8',
+          200: '#e2e7ee',
+          300: '#cad2dd',
+          400: '#a4abb6',
+          500: '#969ba6',
+          600: '#5b6371',
+          700: '#363f4e',
+          800: '#1f2633',
+          900: '#131825',
+          950: '#050914'
+        },
+        primary: {
+          DEFAULT: '#3276FF',
+          foreground: 'hsl(var(--primary-foreground))'
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))'
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))'
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))'
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))'
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))'
+        }
+      },
       animation: {
         reveal: 'reveal 0.7s ease-in-out'
       },

@@ -17,15 +17,6 @@ const nextConfig = {
     deviceSizes: [390, 435, 768, 1024, 1280],
     formats: ['image/avif']
   },
-  async redirects() {
-    return [
-      // {
-      //   source: '',
-      //   destination: '',
-      //   permanent: true
-      // }
-    ]
-  },
   experimental: {
     optimizePackageImports: ['framer-motion', '@supabase/supabase-js', 'react-tweet'],
     webVitalsAttribution: ['FCP', 'LCP', 'CLS', 'FID', 'TTFB', 'INP']

@@ -1,8 +1,16 @@
-import { create } from "zustand";
+import { create } from 'zustand'
 
-const useStore = create((set) => ({
+type State = {
+  editing: boolean
+}
+
+type Action = {
+  setEditing: (editing: boolean) => void
+}
+
+const useStore = create<State & Action>((set) => ({
   editing: false,
-  setEditing: (editing: boolean) => set({ editing }),
-}));
+  setEditing: (editing) => set({ editing })
+}))
 
-export default useStore;
+export default useStore

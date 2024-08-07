@@ -1,11 +1,13 @@
 {
   "extends": [
-    "eslint:recommended",
-    "next/core-web-vitals",
+    "next",
     "prettier",
+    "react-app",
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:import/recommended",
+    // "plugin:@typescript-eslint/recommended",
+    // "plugin:import/recommended",
     "plugin:tailwindcss/recommended"
   ],
   "env": {
@@ -27,7 +29,7 @@
   "settings": {
     "import/resolver": {
       "alias": {
-        "extensions": [".js", ".jsx"],
+        "extensions": [".ts", ".tsx"],
         "map": [["@", "./src"]]
       }
     }
