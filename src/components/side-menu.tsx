@@ -7,6 +7,7 @@ import { LoadingSpinner } from '@/components/loading-spinner'
 import { useKeyPress } from '@/hooks/useKeyPress'
 import { cn } from '@/lib/utils'
 import React from 'react'
+import type { BookmarksType } from '@/lib/raindrop'
 
 import useStore from '@/store/index'
 const SubmitBookmarkDialog = dynamic(
@@ -30,7 +31,7 @@ const keyCodePathnameMapping: { [key: string]: string } = {
 type SideMenuProps = {
   children: React.ReactNode
   title?: string
-  bookmarks?: { slug: string }[]
+  bookmarks?: BookmarksType
   isInner?: boolean
 }
 

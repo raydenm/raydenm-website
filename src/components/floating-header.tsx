@@ -9,6 +9,7 @@ import {
   ArrowLeftIcon
   // RadioIcon
 } from 'lucide-react'
+import type { BookmarksType, BookmarkType } from '@/lib/raindrop'
 
 import { Button } from '@/components/ui/button'
 import { LoadingSpinner } from '@/components/loading-spinner'
@@ -26,8 +27,8 @@ type FloatingHeaderProps = {
   scrollTitle?: string
   title?: string
   goBackLink?: string
-  bookmarks?: { slug: string; _id: string; title: string }[]
-  currentBookmark?: any
+  bookmarks?: BookmarksType
+  currentBookmark?: BookmarkType
   children?: React.ReactNode
 }
 
@@ -98,7 +99,9 @@ export const FloatingHeader = memo(
                   </Balancer>
                 )}
                 <div className="flex items-center gap-2">
-                  {isBookmarkPath && <SubmitBookmarkDrawer bookmarks={bookmarks} currentBookmark={currentBookmark} />}
+                  {isBookmarkPath && currentBookmark && (
+                    <SubmitBookmarkDrawer bookmarks={bookmarks} currentBookmark={currentBookmark} />
+                  )}
                 </div>
               </div>
             </div>

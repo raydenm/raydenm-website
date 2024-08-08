@@ -7,11 +7,10 @@ import { Button } from '@/components/ui/button'
 import { BookmarkCard } from '@/components/bookmark-card'
 import { getBookmarkItemsByPageIndex } from '@/app/actions'
 import { cn } from '@/lib/utils'
-// import { TWEETS_COLLECTION_ID } from '@/lib/constants'
 
 type BookmarkListProps = {
   initialData: any
-  id: string
+  id: number
 }
 
 export const BookmarkList = ({ initialData, id }: BookmarkListProps) => {
@@ -26,7 +25,7 @@ export const BookmarkList = ({ initialData, id }: BookmarkListProps) => {
   const fetchInfiniteData = useCallback(async () => {
     setIsLoading(true)
     const newData = await getBookmarkItemsByPageIndex(id, pageIndex)
-    if (newData.result) setData((prevData: any) => [...prevData, ...newData.items])
+    if (newData?.result) setData((prevData: any) => [...prevData, ...newData.items])
     setIsLoading(false)
   }, [id, pageIndex])
 
@@ -49,7 +48,6 @@ export const BookmarkList = ({ initialData, id }: BookmarkListProps) => {
 
   const chunks = useMemo(() => getChunks(), [getChunks])
   const isReachingEnd = data.length >= initialData?.count ?? 0
-  // const isTweetCollection = id === TWEETS_COLLECTION_ID
   const isTweetCollection = false
 
   return (
@@ -93,7 +91,7 @@ export const BookmarkList = ({ initialData, id }: BookmarkListProps) => {
                   role="status"
                   aria-label="loading"
                 >
-                  <span className="sr-only">Loading...</span>
+                  <span className="sr-only">加载中...</span>
                 </div>
               ) : (
                 <Button
@@ -102,18 +100,18 @@ export const BookmarkList = ({ initialData, id }: BookmarkListProps) => {
                   disabled={isLoading}
                   className="w-full justify-center bg-white"
                 >
-                  Load more
+                  加载更多
                   <ArrowDownIcon size={16} />
                 </Button>
               )}
             </>
           ) : (
-            <span>That's all for now. Come back later for more.</span>
+            <span>已加载全部</span>
           )}
         </div>
       ) : (
         <div className="mt-8 flex min-h-16 flex-col items-center justify-center lg:mt-12">
-          <span>No bookmarks found.</span>
+          <span>暂无标签</span>
         </div>
       )}
     </div>

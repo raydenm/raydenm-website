@@ -13,7 +13,32 @@ const options = {
 
 const RAINDROP_API_URL = 'https://api.raindrop.io/rest/v1'
 
-export const getBookmarkItems = cache(async (id: string, pageIndex = 0) => {
+export type BookmarkType = {
+  _id: number
+  title: string
+  description: string
+  count: number
+  slug: string
+}
+
+export type BookmarksType = BookmarkType[]
+
+export type BookmarkItemType = {
+  _id: number
+  link: string
+  title: string
+  excerpt: string
+  note: string
+  cover: string
+  domain: string
+}
+
+export type BookmarkItemsType = {
+  items: BookmarkItemType[]
+  result: true
+}
+
+export const getBookmarkItems = cache(async (id: number, pageIndex = 0) => {
   try {
     const response = await fetch(
       `${RAINDROP_API_URL}/raindrops/${id}?` +
@@ -25,7 +50,8 @@ export const getBookmarkItems = cache(async (id: string, pageIndex = 0) => {
         }),
       options
     )
-    return await response.json()
+    const data: BookmarkItemsType = await response.json()
+    return data
   } catch (error) {
     console.info(error)
     return null
@@ -35,7 +61,7 @@ export const getBookmarkItems = cache(async (id: string, pageIndex = 0) => {
 export const getBookmarks = cache(async () => {
   try {
     const response = await fetch(`${RAINDROP_API_URL}/collections?time=${Date.now()}`, options)
-    const bookmarks: { items: { slug: string; _id: string; title: string; count: number }[] } = await response.json()
+    const bookmarks: { items: BookmarksType } = await response.json()
     const bookmarkList = (bookmarks?.items || []).map((bookmark) => ({
       ...bookmark,
       title: BOOKMARK_MAP[bookmark.title] || bookmark.title
@@ -43,7 +69,7 @@ export const getBookmarks = cache(async () => {
     return bookmarkList
   } catch (error) {
     console.info(error)
-    return null
+    return []
   }
 })
 

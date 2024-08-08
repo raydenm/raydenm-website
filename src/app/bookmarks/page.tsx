@@ -18,7 +18,7 @@ export default async function Writing() {
 
   return (
     <ScrollArea className="lg:hidden">
-      <FloatingHeader title="Bookmarks" bookmarks={bookmarks || []} />
+      <FloatingHeader title="Bookmarks" bookmarks={bookmarks} />
       <Suspense fallback={<ScreenLoadingSpinner />}>
         {bookmarks?.map((bookmark) => {
           return (

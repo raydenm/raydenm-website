@@ -14,10 +14,11 @@ import {
 import { Button } from '@/components/ui/button'
 import { SubmitBookmarkForm } from '@/components/submit-bookmark/form'
 import { SUBMIT_BOOKMARK_FORM_TITLE, SUBMIT_BOOKMARK_FORM_DESCRIPTION } from '@/lib/constants'
+import type { BookmarksType, BookmarkType } from '@/lib/raindrop'
 
 type SubmitBookmarkDrawerProps = {
-  bookmarks: any[]
-  currentBookmark: any
+  bookmarks: BookmarksType
+  currentBookmark: BookmarkType
 }
 
 export const SubmitBookmarkDrawer = ({ bookmarks, currentBookmark }: SubmitBookmarkDrawerProps) => {
