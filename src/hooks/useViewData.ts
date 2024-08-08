@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import supabase from '@/lib/supabase/public'
 import { SUPABASE_TABLE_NAME } from '@/lib/constants'
 
-export const useViewData = (slug: string) => {
+export const useViewData = (slug?: string) => {
   const [viewData, setViewData] = useState<{ slug: string; view_count: number }[]>([])
 
   useEffect(() => {
