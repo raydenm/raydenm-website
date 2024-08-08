@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { getBookmarks } from '@/lib/raindrop'
 
 async function fetchData() {
-  const bookmarks: { slug: string; _id: number; title: string; count: number }[] = await getBookmarks()
+  const bookmarks = await getBookmarks()
   return { bookmarks }
 }
 

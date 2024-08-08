@@ -33,8 +33,10 @@ export const BookmarkCard = ({ bookmark, order }: BookmarkCardProps) => {
           loading={order < 2 ? 'eager' : 'lazy'}
           className="aspect-[1200/630] animate-reveal rounded-lg border bg-cover bg-center bg-no-repeat object-cover"
           onError={(e) => {
-            ;(e.target as HTMLImageElement).onerror = null
-            e.target instanceof HTMLImageElement && (e.target.src = '/assets/fallback.avif')
+            // @ts-ignore
+            e.target.onerror = null
+            // @ts-ignore
+            e.target.src = '/assets/fallback.avif'
           }}
         />
       </span>

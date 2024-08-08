@@ -11,7 +11,7 @@ import { sortByProperty } from '@/lib/utils'
 
 export async function generateStaticParams() {
   const bookmarks = await getBookmarks()
-  return (bookmarks || []).map((bookmark) => ({ slug: bookmark.slug }))
+  return bookmarks.map((bookmark) => ({ slug: bookmark.slug }))
 }
 
 async function fetchData(slug: string) {
