@@ -17,7 +17,7 @@ interface BlogPost {
 }
 
 export const WritingList = ({ items }: { items: [number, BlogPost[]][] }) => {
-  const viewData: { slug: string; view_count: number }[] = useViewData()
+  const viewData = useViewData()
 
   return (
     <LazyMotion features={domAnimation}>
